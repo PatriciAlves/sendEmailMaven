@@ -25,11 +25,11 @@ public class AppTest {
 		SendEmailObject sendEmail = new SendEmailObject ("patricia.18_08@hotmail.com",  "Curso Java Test", 
 						"testando email com JAVA"
 						,stringBuilderTextEmail.toString());
-		
-		sendEmail.sendEmail(true);
+			
+		sendEmail.sendEmailPdf(true);
 		
 
-		Thread.sleep(5000);
+	Thread.sleep(5000);
 	}
 
 }
