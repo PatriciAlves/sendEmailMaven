@@ -28,7 +28,7 @@ public class SendEmailObject {
 		this.subjectEmail= subjectsEmail;
 		this.textEmail= textEmails;
 	}
-	public void sendEmail() throws Exception {
+	public void sendEmail(boolean sendHtml) throws Exception {
 		
 		Properties properties = new Properties();
 		
@@ -52,8 +52,12 @@ public class SendEmailObject {
 		message.setFrom(new InternetAddress(userName, senderName)); // quem esta enviando+ nome profissional
 		message.setRecipients(Message.RecipientType.TO, toUser);
 		message.setSubject(subjectEmail); //assunto do email
-		message.setText(textEmail);
 		
+		if (sendHtml) {
+			message.setContent(textEmail, "text/html; charset=utf-8");
+		}else {
+		message.setText(textEmail);
+		}
 		Transport.send(message);
 		
 	}
